@@ -33,7 +33,8 @@ class _CounterAppState extends State<CounterApp> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: Text('Counter value is 5!'),
+              title: Text('Counter Alert'),
+              content: Text('Counter value is 5!'),
               actions: <Widget>[
                 ElevatedButton(
                   onPressed: () {
@@ -79,22 +80,35 @@ class _CounterAppState extends State<CounterApp> {
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
-            Row(
+            Flex(
+              direction: Axis.horizontal,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Flexible(
+                Expanded(
                   flex: 2,
                   child: ElevatedButton(
                     onPressed: _incrementCounter,
-                    child: Text('+'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red, // Red button color
+                    ),
+                    child: Icon(
+                      Icons.add,
+                      color: Colors.white, // White icon color
+                    ),
                   ),
                 ),
                 SizedBox(width: 20),
-                Flexible(
+                Expanded(
                   flex: 1,
                   child: ElevatedButton(
                     onPressed: _decrementCounter,
-                    child: Text('-'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green, // Green button color
+                    ),
+                    child: Icon(
+                      Icons.remove,
+                      color: Colors.white, // White icon color
+                    ),
                   ),
                 ),
               ],
